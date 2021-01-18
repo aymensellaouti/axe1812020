@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "axe1812020"
+    }
+  },
+  "defaultProject": "axe1812020",
+  "cli": {
+    "analytics": false
+  }
 }
