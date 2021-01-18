@@ -1,0 +1,6 @@
+<p [hidden]="isHidden" [style.color]="color">first works!</p>
+<p (click)="toggle()">Hello {{ name }}</p>
+
+<app-second></app-second>
+<input #monInput type="text" (change)="changeMessage(monInput.value)" />
+<p>voici le contenu de l'input : {{ message }}</p>
