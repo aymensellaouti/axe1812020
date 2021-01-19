@@ -16,6 +16,12 @@ import { ListComponent } from './cv/list/list.component';
 import { ItemComponent } from './cv/item/item.component';
 import { CardComponent } from './cv/card/card.component';
 import { TestNgStyleComponent } from './directives/test-ng-style/test-ng-style.component';
+import { WordComponent } from './directives/word/word.component';
+import { ModalComponent } from './directives/modal/modal.component';
+import { HighlightDirective } from './directives/highlight.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
+import { UsdBtcPipe } from './pipe/usd-btc.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,12 @@ import { TestNgStyleComponent } from './directives/test-ng-style/test-ng-style.c
     ItemComponent,
     CardComponent,
     TestNgStyleComponent,
+    WordComponent,
+    ModalComponent,
+    HighlightDirective,
+    RainbowDirective,
+    UsdBtcPipe,
+    DefaultImagePipe,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
