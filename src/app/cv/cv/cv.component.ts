@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggerService } from 'src/app/services/logger.service';
+import { UtilsService } from 'src/app/services/utils.service';
 import { Personne } from './../model/personne';
 
 @Component({
@@ -8,9 +10,14 @@ import { Personne } from './../model/personne';
 })
 export class CvComponent implements OnInit {
   selectedPersonne: Personne;
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(
+    private loggerService: LoggerService,
+    private utilsService: UtilsService
+  ) {}
+  ngOnInit(): void {
+    this.utilsService.sayHello();
+    this.loggerService.logger('Je suis le cvComponent');
+  }
   selectPersonne(personne: Personne) {
     this.selectedPersonne = personne;
   }

@@ -22,6 +22,9 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { UsdBtcPipe } from './pipe/usd-btc.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { LoggerService } from './services/logger.service';
+import { UtilsService } from './services/utils.service';
+import { TodoComponent } from './todo/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
     RainbowDirective,
     UsdBtcPipe,
     DefaultImagePipe,
+    TodoComponent,
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
