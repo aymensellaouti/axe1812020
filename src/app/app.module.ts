@@ -27,6 +27,10 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { LoggerService } from './services/logger.service';
 import { UtilsService } from './services/utils.service';
 import { TodoComponent } from './todo/todo/todo.component';
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RouterSimulatorComponent } from './components/router-simulator/router-simulator.component';
+import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { TodoComponent } from './todo/todo/todo.component';
     UsdBtcPipe,
     DefaultImagePipe,
     TodoComponent,
+    EmbaucheComponent,
+    HeaderComponent,
+    RouterSimulatorComponent,
+    DetailPersonneComponent,
   ],
   imports: [
     BrowserModule,

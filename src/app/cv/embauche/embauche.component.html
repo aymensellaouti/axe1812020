@@ -1,0 +1,11 @@
+<div>
+  <div class="embauche">
+    <app-item
+      [heigth]="150"
+      [width]="150"
+      [isDiv]="false"
+      *ngFor="let embauche of embauchees"
+      [personne]="embauche"
+    ></app-item>
+  </div>
+</div>

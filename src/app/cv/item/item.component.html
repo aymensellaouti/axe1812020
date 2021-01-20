@@ -1,12 +1,24 @@
-<div
-  (click)="selectItem()"
->
+<div *ngIf="isDiv" (click)="selectItem()">
   <img
-  src="assets/images/{{ personne?.path| defaultImage }}"
-  alt="{{ personne?.name }}"
-  class="rounded-circle"
-  width="50px"
-  heigth="50px"
-/>
-{{ personne?.firstname }} {{ personne?.name }}
+    src="assets/images/{{ personne?.path | defaultImage }}"
+    alt="{{ personne?.name }}"
+    class="rounded-circle"
+    [ngStyle]="{
+      heigth: heigth + 'px',
+      width: width + 'px'
+    }"
+  />
+  {{ personne?.firstname }} {{ personne?.name }}
 </div>
+<span *ngIf="!isDiv">
+  <img
+    src="assets/images/{{ personne?.path | defaultImage }}"
+    alt="{{ personne?.name }}"
+    class="rounded-circle"
+    [ngStyle]="{
+      heigth: heigth + 'px',
+      width: width + 'px'
+    }"
+  />
+  {{ personne?.firstname }} {{ personne?.name }}
+</span>

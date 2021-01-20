@@ -8,6 +8,9 @@ import { Personne } from './../model/personne';
 })
 export class ItemComponent implements OnInit {
   @Input() personne: Personne = null;
+  @Input() isDiv = true;
+  @Input() width = 50;
+  @Input() heigth = 50;
   @Output() selectPersonneItem = new EventEmitter();
   constructor() {}
 
