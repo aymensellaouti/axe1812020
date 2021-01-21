@@ -9,14 +9,13 @@ import { ActivatedRoute } from '@angular/router';
 export class ColorComponent implements OnInit {
   defaultColor = 'red';
   color = this.defaultColor;
-  constructor(
-    private activatedRoute: ActivatedRoute
-  ) {}
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      (mesParams) => this.defaultColor = mesParams.defaultColor
-    )
+      (mesParams) => (this.defaultColor = mesParams.defaultColor)
+    );
+    this.activatedRoute.queryParams.subscribe((qp) => console.log(qp));
   }
   changeColor(newColor) {
     this.color = newColor;
