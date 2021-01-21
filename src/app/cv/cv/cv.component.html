@@ -1,9 +1,13 @@
 <div class="row">
   <div class="col">
-    <app-list (forwardPersonneEvent)="selectPersonne($event)"></app-list>
+    <div *ngIf="nbClik" class="alert alert-info">
+      Nombre de personne sélectionnée : {{ nbClik }}
+    </div>
+    <!--     (forwardPersonneEvent)="selectPersonne($event)"-->
+    <app-list></app-list>
   </div>
   <div class="col">
-    <app-card [personne]="selectedPersonne"></app-card>
+    <app-card></app-card>
   </div>
 </div>
 <div class="row">

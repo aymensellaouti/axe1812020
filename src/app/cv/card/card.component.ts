@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CvService } from '../services/cv.service';
 import { Personne } from './../model/personne';
 import { EmbaucheService } from './../services/embauche.service';
 
@@ -13,11 +14,16 @@ export class CardComponent implements OnInit {
   @Input() personne: Personne = null;
   constructor(
     private embaucheService: EmbaucheService,
+    private cvService: CvService,
     private tostService: ToastrService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cvService.selectItemSubject.subscribe(
+      (personne) => (this.personne = personne)
+    );
+  }
   embaucher() {
     if (this.embaucheService.embaucher(this.personne)) {
       this.tostService.success(`

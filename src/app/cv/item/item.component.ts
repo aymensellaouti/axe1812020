@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Personne } from './../model/personne';
+import { CvService } from './../services/cv.service';
 
 @Component({
   selector: 'app-item',
@@ -11,12 +12,13 @@ export class ItemComponent implements OnInit {
   @Input() isDiv = true;
   @Input() width = 50;
   @Input() heigth = 50;
-  @Output() selectPersonneItem = new EventEmitter();
-  constructor() {}
+  /*   @Output() selectPersonneItem = new EventEmitter(); */
+  constructor(private cvService: CvService) {}
 
   ngOnInit(): void {}
   // Envoyer un event qui contient la personne sélectionnée
   selectItem() {
-    this.selectPersonneItem.emit(this.personne);
+    this.cvService.selectItem(this.personne);
+    /*     this.selectPersonneItem.emit(this.personne); */
   }
 }

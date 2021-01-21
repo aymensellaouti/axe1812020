@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Personne } from './../model/personne';
 import { CvService } from './../services/cv.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list',
@@ -9,15 +10,24 @@ import { CvService } from './../services/cv.service';
 })
 export class ListComponent implements OnInit {
   personnes: Personne[] = [];
-  @Output() forwardPersonneEvent = new EventEmitter();
-  constructor(private cvService: CvService) {}
+  /*   @Output() forwardPersonneEvent = new EventEmitter(); */
+  constructor(
+    private cvService: CvService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
-    this.personnes = this.cvService.getPersonnes();
+    this.cvService.getPersonnes().subscribe(
+      (personnes) => this.personnes = personnes,
+      (erreur) => {
+        this.personnes = this.cvService.getFakePersonnes();
+        this.toastr.warning(`Problème serveur, les données sont fictives. Veuillez contacter l'admin`)
+      }
+    );
   }
 
   // emettre un event avec la personne que je viens de recevoir
-  forwardPersonne(personne: Personne) {
+  /*   forwardPersonne(personne: Personne) {
     this.forwardPersonneEvent.emit(personne);
-  }
+  } */
 }

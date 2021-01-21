@@ -20,10 +20,10 @@ export class DetailPersonneComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      this.personne = this.cvService.getPersonneById(+params.id);
-      if (!this.personne) {
-        this.router.navigate(['cv']);
-      }
+      this.cvService.getPersonneById(+params.id).subscribe(
+        (personne) => this.personne = personne,
+        (erreur) => this.router.navigate(['cv'])
+      );
     });
   }
 

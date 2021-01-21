@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -24,8 +25,6 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { UsdBtcPipe } from './pipe/usd-btc.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
-import { LoggerService } from './services/logger.service';
-import { UtilsService } from './services/utils.service';
 import { TodoComponent } from './todo/todo/todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -36,6 +35,8 @@ import { BackComponent } from './components/back/back.component';
 import { FrontComponent } from './components/front/front.component';
 import { TestFormComponent } from './components/test-form/test-form.component';
 import { LoginComponent } from './pages/login/login.component';
+import { TestObservableComponent } from './components/test-observable/test-observable.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -68,12 +69,15 @@ import { LoginComponent } from './pages/login/login.component';
     FrontComponent,
     TestFormComponent,
     LoginComponent,
+    TestObservableComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule, // required animations module
+    AppRoutingModule,
     ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [],
