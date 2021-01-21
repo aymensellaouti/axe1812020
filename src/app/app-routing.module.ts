@@ -9,7 +9,9 @@ import { DetailPersonneComponent } from './cv/detail-personne/detail-personne.co
 import { ModalComponent } from './directives/modal/modal.component';
 import { TestNgStyleComponent } from './directives/test-ng-style/test-ng-style.component';
 import { WordComponent } from './directives/word/word.component';
+import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
+import { NF404Component } from './pages/nf404/nf404.component';
 import { TodoComponent } from './todo/todo/todo.component';
 
 // /todo
@@ -20,7 +22,11 @@ const routes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: CvComponent },
-      { path: 'add', component: AddPersonneComponent },
+      {
+        path: 'add',
+        component: AddPersonneComponent,
+        canActivate: [AuthGuard],
+      },
       { path: ':id', component: DetailPersonneComponent },
     ],
   },
@@ -37,6 +43,7 @@ const routes: Routes = [
     component: BackComponent,
     children: [{ path: 'ngstyle', component: TestNgStyleComponent }],
   },
+  { path: '**', component: NF404Component },
 ];
 
 @NgModule({

@@ -42,8 +42,13 @@ export class CvService {
   getPersonneById(id: number): Observable<Personne> {
     return this.http.get<Personne>(PERSONNE_API_LINK + id);
   }
-
-  deletePersonne(personne: Personne): boolean {
+  deletePersonneById(id: number): Observable<any> {
+    return this.http.delete<any>(PERSONNE_API_LINK + id);
+  }
+  addPersonne(personne: Personne): Observable<Personne> {
+    return this.http.post<Personne>(PERSONNE_API_LINK, personne);
+  }
+  deleteFakePersonne(personne: Personne): boolean {
     const index = this.personnes.indexOf(personne);
     if (index !== -1) {
       this.personnes.splice(index, 1);

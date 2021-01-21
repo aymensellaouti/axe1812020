@@ -13,4 +13,11 @@ export class AuthService {
   login(crededntials): Observable<any> {
     return this.http.post<any>(LOGIN_API, crededntials);
   }
+
+  isAutheenticated(): boolean {
+    return !!localStorage.getItem('token');
+  }
+  logout() {
+    localStorage.removeItem('token');
+  }
 }

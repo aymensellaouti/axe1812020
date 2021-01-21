@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">Navbar</a>
+  <a class="navbar-brand">AxeFinance</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -27,16 +27,30 @@
         >Cv</a
       >
       <a
+        *ngIf="authService.isAutheenticated()"
+        class="nav-item nav-link"
+        [routerLink]="['/cv/add']"
+        routerLinkActive="active text-primary"
+        >Add cv</a
+      >
+      <a
         class="nav-item nav-link"
         [routerLink]="['/todo']"
         routerLinkActive="active text-primary"
         >Todo</a
       >
       <a
+        *ngIf="!authService.isAutheenticated()"
         class="nav-item nav-link"
         [routerLink]="['/login']"
         routerLinkActive="active text-primary"
         >Login</a
+      >
+      <a
+        *ngIf="authService.isAutheenticated()"
+        class="nav-item nav-link"
+        (click)="logout()"
+        >Logout</a
       >
     </div>
   </div>
